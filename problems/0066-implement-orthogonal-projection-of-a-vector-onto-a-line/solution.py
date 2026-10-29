@@ -10,4 +10,4 @@ def orthogonal_projection(v, L):
 	v=np.array(v,dtype=float)
 	L=np.array(L,dtype=float)
 	proj=(np.dot(v,L)/np.dot(L,L))*L
-	return proj.tolist()
+	return proj
