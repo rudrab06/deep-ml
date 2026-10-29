@@ -1,5 +1,4 @@
 import numpy as np
-from numpy.linalg import inv
 def inverse_2x2(matrix: list[list[float]]) -> list[list[float]] | None:
     """
     Calculate the inverse of a 2x2 matrix.
@@ -13,8 +12,16 @@ def inverse_2x2(matrix: list[list[float]]) -> list[list[float]] | None:
     """
     # Your code here
     a=np.array(matrix)
-    det=a[0][0]*a[1][1]-a[1][0]*a[0][1]
-    if det!=0:
-        return inv(np.matrix(a))
-    return None
+    det=a[0][0]*a[1][1]-a[0][1]*a[1][0]
+    if det==0:
+        return None
+    
+    a[0][0],a[0][1],a[1][0],a[1][1]=a[1][1],-a[0][1],-a[1][0],a[0][0]
+    return a/det
+    # a=np.array(matrix)
+    # det=a[0][0]*a[1][1]-a[1][0]*a[0][1]
+    # if det!=0:
+    #     return inv(np.matrix(a))
+    # return None
+            
             
